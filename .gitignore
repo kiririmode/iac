@@ -31,3 +31,5 @@ override.tf.json
 # direnv
 .env
 .envrc
+
+.DS_Store
