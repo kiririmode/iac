@@ -6,10 +6,10 @@ terraform の remote backend を構成します。
 
 TODO: きちんと書く
 
-最初に、config/backend-${env}.conf の内容を修正してください。
+最初に、config/terraform-backend.tfvars の内容を修正してください。
 その後、以下を実行します。
 
 ```bash
-$ terraform plan -var-file=../../config/backend-${env}.conf
-$ terraform apply -var-file=../../config/backend-${env}.conf
+$ terraform plan -var-file=../../config/terraform-backend.tfvars
+$ terraform apply -var-file=../../config/terraform-backend.tfvars
 ```
