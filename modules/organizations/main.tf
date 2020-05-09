@@ -31,6 +31,7 @@ resource "aws_organizations_account" "audit" {
 TODO: 監査用アカウントにログも集約すれば良い
 resource "aws_organizations_account" "log" {
   name      = "log"
+
   parent_id = aws_organizations_organizational_unit.core.id
 }
 */
