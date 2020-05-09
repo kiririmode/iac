@@ -1,0 +1,20 @@
+stages:
+  - lint
+
+tflint:
+  stage: lint
+  image: curlimages/curl:latest
+  before_script:
+    - curl -Ls "$(curl -Ls https://api.github.com/repos/terraform-linters/tflint/releases/latest | grep -o -E "https://.+?_linux_amd64.zip")" -o tflint.zip
+    - unzip tflint.zip -d $HOME
+    - rm tflint.zip
+  script:
+    - >-
+      find . -type f -name "*.tf" -exec dirname {} \;
+      | sort -u
+      | while read line; do
+          cd $line;
+          echo "processing $PWD ..."
+          $HOME/tflint;
+          cd -;
+        done
