@@ -19,6 +19,6 @@ tflint:
       | while read line; do
           cd $line;
           echo "processing $PWD ..."
-          terraform init -backend=false && $HOME/tflint --config $CI_PROJECT_DIR/.tflint.hcl;
+          terraform init -backend=false && $HOME/tflint --config ${CI_PROJECT_DIR}/.tflint.hcl;
           cd -;
         done
